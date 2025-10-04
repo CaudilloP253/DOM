@@ -1,0 +1,162 @@
+$light--bgColor: #6168FF;
+$light--fontColor:#fff;
+$dark--bgColor: #dddee9;
+$dark--fontColor:#41346f;
+$light--linkColor:#2831dd;
+$dark--linkColor:rgba(189, 130, 232, 0.533);
+
+@mixin img__product--size{
+    width: 320px;
+    height: 320px;
+}
+* {
+    font-size: medium;
+    font-family: 'Nunito', sans-serif;
+    background-color: $light--fontColor;
+}
+
+/*.red{
+    color:#ff0000;
+    font-weight: 300; 
+}
+.blue{
+    color:#080cee;
+    background-color: #fff;
+    font-weight: 300; 
+}*/
+
+.carrito{
+    width: 30%;
+    position: absolute;
+    right: -30%;
+    top: 85px;
+    background-color: #fff;
+    padding: 20px;
+    height: 100%;    
+    box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.29);
+    transition: all .25s ease ;
+    &.show{
+        right: 0;
+    }
+}
+.footer__logo{
+    width: 20rem;
+    }
+h1{
+    text-align: center;
+    border: solid;
+    border-radius: 3px 0;
+    background-color: $light--bgColor;
+    color: $light--fontColor;
+}
+.header__logo{
+    display: flex;
+    min-height: 3rem;
+    width: 120px;
+    min-width: 20%;
+}
+.grid.container{
+    display: grid;
+    grid-row: 3;
+}
+article{
+    display: grid;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-around;
+    grid-template-columns: repeat(autofit,minmax(330px,1fr));
+}
+header{
+    display: flex;
+    justify-content: space-around;
+
+    .header__row{
+        flex-wrap: nowrap ;
+    }
+    .header__link{
+        font-size: small;
+        display: inline-block;
+        max-width: 80%;
+        min-width: 420px;
+        margin: 20px 0;
+    }
+    a {
+        text-decoration: none;
+        padding: 0 5px;
+        border: solid;
+        color: $light--linkColor
+    }
+}
+.products__section{
+    display: grid;
+    grid-template-columns: 3fr;
+}
+.figure__article--grid{
+    width: 30%;
+}
+.section__item{
+    display: grid;
+    grid-template-areas:
+    /*se emplean numeros para poder asignar lugares en el grid template*/
+    'item1 item2 item3'
+    'item4 item5 item6'
+    'item7 item8 item9'
+    ;
+    text-align: center;
+}
+section img{
+   @include img__product--size;
+}
+.footer__logo{
+    justify-content: center;
+}
+.footer__nav{
+    display: inline-block;
+}
+i img{
+    width: auto;
+    height: 30px;
+   
+}
+.product{
+    width: 150px;
+    height: auto;
+}
+@media screen and (max-width:768px) {
+    header{
+        display: flex;
+        flex-direction: row;
+        .header__logo{
+        justify-items: center;
+        }
+        .header--row{
+            display: block;
+        }
+        .header__link{
+            justify-content: space-around;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            min-width: auto;
+        }
+    }
+    a{
+        font-size: .5em;
+    }
+    .section__item{
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    *{
+        background-color: $dark--fontColor;
+    }
+    h1{
+        background-color: $dark--bgColor;
+        color: $dark--fontColor;
+    }
+    header a, footer a{
+        color: $dark--linkColor;
+    }
+}
